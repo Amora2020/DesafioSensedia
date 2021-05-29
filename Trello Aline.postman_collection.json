@@ -1,0 +1,210 @@
+{
+	"info": {
+		"_postman_id": "e3c6e48d-7fc3-4ed8-9b2b-d6f25d8f2fbc",
+		"name": "Trello Aline",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Criar card na lista backlog",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"let response = pm.response.json();\r",
+							"pm.globals.set(\"idcard\", response.id);\r",
+							"\r",
+							"tests[\"Status code retornado foi 200\"] = responseCode.code === 200;"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "token",
+						"type": "text",
+						"value": "ec780b1f9c634c5510fa3350a94394006e8c31c555b3663a29dfdf77b03276fa"
+					},
+					{
+						"key": "key",
+						"type": "text",
+						"value": "4ea30ff69a7fd7c3d53e3b57c75bdf3c"
+					},
+					{
+						"key": "",
+						"type": "text",
+						"value": "",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "https://api.trello.com/1/cards?idList=60b26689478d4c299cc7e10c&name=Teste&token=35e54d69a0ee77a3372eddd6d80d07c55be152b6d1dc843216a7b7978732bff3&key=fe70bcae83c7c0296ec0e79d4165481a",
+					"protocol": "https",
+					"host": [
+						"api",
+						"trello",
+						"com"
+					],
+					"path": [
+						"1",
+						"cards"
+					],
+					"query": [
+						{
+							"key": "idList",
+							"value": "60b26689478d4c299cc7e10c"
+						},
+						{
+							"key": "name",
+							"value": "Teste"
+						},
+						{
+							"key": "token",
+							"value": "35e54d69a0ee77a3372eddd6d80d07c55be152b6d1dc843216a7b7978732bff3"
+						},
+						{
+							"key": "key",
+							"value": "fe70bcae83c7c0296ec0e79d4165481a"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Card",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"tests[\"Status code retornado foi 200\"] = responseCode.code === 200;"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "token",
+						"type": "text",
+						"value": "ec780b1f9c634c5510fa3350a94394006e8c31c555b3663a29dfdf77b03276fa"
+					},
+					{
+						"key": "key",
+						"type": "text",
+						"value": "4ea30ff69a7fd7c3d53e3b57c75bdf3c"
+					},
+					{
+						"key": "",
+						"type": "text",
+						"value": "",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "https://api.trello.com/1/cards/{{idcard}}/?name=Teste Aline&token=35e54d69a0ee77a3372eddd6d80d07c55be152b6d1dc843216a7b7978732bff3&key=fe70bcae83c7c0296ec0e79d4165481a",
+					"protocol": "https",
+					"host": [
+						"api",
+						"trello",
+						"com"
+					],
+					"path": [
+						"1",
+						"cards",
+						"{{idcard}}",
+						""
+					],
+					"query": [
+						{
+							"key": "idList",
+							"value": "5cd4e8ae0a316909912a8586",
+							"disabled": true
+						},
+						{
+							"key": "name",
+							"value": "Teste Aline"
+						},
+						{
+							"key": "token",
+							"value": "35e54d69a0ee77a3372eddd6d80d07c55be152b6d1dc843216a7b7978732bff3"
+						},
+						{
+							"key": "key",
+							"value": "fe70bcae83c7c0296ec0e79d4165481a"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Card",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"tests[\"Status code retornado foi 200\"] = responseCode.code === 200;"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "token",
+						"type": "text",
+						"value": "ec780b1f9c634c5510fa3350a94394006e8c31c555b3663a29dfdf77b03276fa"
+					},
+					{
+						"key": "key",
+						"type": "text",
+						"value": "4ea30ff69a7fd7c3d53e3b57c75bdf3c"
+					},
+					{
+						"key": "",
+						"type": "text",
+						"value": "",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "https://api.trello.com/1/cards/{{idcard}}/?token=35e54d69a0ee77a3372eddd6d80d07c55be152b6d1dc843216a7b7978732bff3&key=fe70bcae83c7c0296ec0e79d4165481a",
+					"protocol": "https",
+					"host": [
+						"api",
+						"trello",
+						"com"
+					],
+					"path": [
+						"1",
+						"cards",
+						"{{idcard}}",
+						""
+					],
+					"query": [
+						{
+							"key": "token",
+							"value": "35e54d69a0ee77a3372eddd6d80d07c55be152b6d1dc843216a7b7978732bff3"
+						},
+						{
+							"key": "key",
+							"value": "fe70bcae83c7c0296ec0e79d4165481a"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
